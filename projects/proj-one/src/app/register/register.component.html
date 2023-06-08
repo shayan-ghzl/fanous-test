@@ -1,3 +1,9 @@
+<!-- [ngClass]="{'is-invalid': customerForm.controls['username'].invalid && customerForm.controls['username'].touched}"
+[ngClass]="{'is-invalid': customerForm.controls['password'].invalid && customerForm.controls['password'].touched}"
+[ngClass]="{'is-invalid': customerForm.controls.carId.controls['twoDigit'].invalid && customerForm.controls.carId.controls['twoDigit'].touched}" 
+[ngClass]="{'is-invalid': customerForm.controls.carId.controls['character'].invalid && customerForm.controls.carId.controls['character'].touched}"
+[ngClass]="{'is-invalid': customerForm.controls.carId.controls['threeDigit'].invalid && customerForm.controls.carId.controls['threeDigit'].touched}" 
+[ngClass]="{'is-invalid': customerForm.controls.carId.controls['cityCode'].invalid && customerForm.controls.carId.controls['cityCode'].touched}" -->
 <div class="component-container shadow-sm">
     <div class="form-container">
         <form [formGroup]="customerForm" (ngSubmit)="submit()" autocomplete="off">
@@ -20,8 +26,7 @@
                     type="text"
                     autocomplete="off"
                     formControlName="username"
-                    #autoFocus
-                    [ngClass]="{'is-invalid': customerForm.controls['username'].invalid && customerForm.controls['username'].touched}">
+                    #autoFocus>
                 <small class="invalid-feedback">
                     From 3 to 12 characters are allowed
                 </small>
@@ -32,8 +37,7 @@
                 <input class="form-control form-control-sm"
                     type="text"
                     autocomplete="off"
-                    formControlName="password"
-                    [ngClass]="{'is-invalid': customerForm.controls['password'].invalid && customerForm.controls['password'].touched}">
+                    formControlName="password">
                 <small class="invalid-feedback">
                     From 6 to 12 characters are allowed
                 </small>
@@ -49,8 +53,7 @@
                         <input class="form-control form-control-sm"
                             type="text"
                             formControlName="twoDigit"
-                            placeholder="12"
-                            [ngClass]="{'is-invalid': customerForm.controls.carId.controls['twoDigit'].invalid && customerForm.controls.carId.controls['twoDigit'].touched}" >
+                            placeholder="12">
                         <small class="invalid-feedback">
                             The field is mandatory
                         </small>
@@ -59,8 +62,7 @@
                         <input class="form-control form-control-sm"
                             type="text"
                             formControlName="character"
-                            placeholder="ب"
-                            [ngClass]="{'is-invalid': customerForm.controls.carId.controls['character'].invalid && customerForm.controls.carId.controls['character'].touched}">
+                            placeholder="ب">
                         <small class="invalid-feedback">
                             The field is mandatory
                         </small>
@@ -69,8 +71,7 @@
                         <input class="form-control form-control-sm"
                             type="text"
                             formControlName="threeDigit"
-                            placeholder="365"
-                            [ngClass]="{'is-invalid': customerForm.controls.carId.controls['threeDigit'].invalid && customerForm.controls.carId.controls['threeDigit'].touched}" >
+                            placeholder="365">
                         <small class="invalid-feedback">
                             The field is mandatory
                         </small>
@@ -79,8 +80,7 @@
                         <input class="form-control form-control-sm"
                             type="text"
                             formControlName="cityCode"
-                            placeholder="11"
-                            [ngClass]="{'is-invalid': customerForm.controls.carId.controls['cityCode'].invalid && customerForm.controls.carId.controls['cityCode'].touched}">
+                            placeholder="11">
                         <small class="invalid-feedback">
                             The field is mandatory
                         </small>
@@ -99,12 +99,13 @@
     <div class="form-value">
         <label class="form-label">Test password</label>
        <div>
-            valid: {{ customerForm.controls['password'].valid }} (means: ), <br>
-            invalid: {{ customerForm.controls['password'].invalid }} (means: ), <br>
-            dirty: {{ customerForm.controls['password'].dirty }} (means: ), <br>
-            touched: {{ customerForm.controls['password'].touched }} (means: ), <br>
-            untouched: {{ customerForm.controls['password'].untouched }} (means: ), <br>
-            pristine: {{ customerForm.controls['password'].pristine }} (means: )<br>
+            <p><strong>ng-valid:</strong> {{ customerForm.controls['password'].valid }} (means: ورودی صحیح است),</p>
+            <p><strong>ng-invalid:</strong> {{ customerForm.controls['password'].invalid }} (means: ورودی صحیح نیست اگر مقدار الزامی باشد در همان حالت لود برنامه این مورد فعال است),</p>
+            <p><strong>ng-dirty:</strong> {{ customerForm.controls['password'].dirty }} (means: از لحظه ای که اولین مقدار رو وارد کنیم کثیف میشه تا آخر برنامه),</p>
+            <p><strong>ng-touched:</strong> {{ customerForm.controls['password'].touched }} (means: اگر به له ر شود این مورد فعال می شود),</p>
+            <p><strong>ng-untouched:</strong> {{ customerForm.controls['password'].untouched }} (means: مخالف حالت قبل),</p>
+            <p><strong>ng-pristine:</strong> {{ customerForm.controls['password'].pristine }} (means: مخالف حالت کثیف می باشد یعنی در حالت لود برنامه فعال است تا زمانی که کثیف شود),</p>
+            <p><strong>notice:</strong> if programmatically sets value to a form control, its just valid and invalid states which will changed, others will remain the same as it should be, when the page loads</p>
        </div>
     </div>
 </div>

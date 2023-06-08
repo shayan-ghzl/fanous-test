@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'jalali-moment';
 
@@ -8,14 +8,34 @@ import * as moment from 'jalali-moment';
   styleUrls: ['./register.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RegisterComponent implements AfterViewInit{
+export class RegisterComponent implements AfterViewInit, OnInit{
+
   // Regex
   // [1-9][0-9][0-9] == [1-9]\d{2}
+  // [0-9]* means 5151512085498...
+  // /.{5}/ every thing 5 times
   // \d = [0-9]
   // /i : case insensitive
   // /g : global
   // [from-to] : range from to
   // [aeb] : single char a or e or b
+  // [A-Za-z\d@#$%&*!]{6,12} means: pick from range and repeat it from 6 to 12 times
+  // /^The/ first of line
+  // /bye$/ end of line
+  // /^bye$/ the only thing that exists has to be bye (without any spaces after or before of it)
+  // /./g dot means every thing
+  // /\./g just look for dot
+  // الف to unicode : &#x0627;&#x0644;&#x0641; use online converter
+  /**
+   *  n is equivalent to a number
+   *  nnn.nnn.nnnn
+   *  nnn-nnn-nnnn
+   *  (nnn)-nnn-nnnn
+   *
+   *  regex = /\(?\d3\)?[-.]?\d{3}[-.]?\d{4}/;
+   *  ? means optional - exist one or not
+   */
+
   @ViewChild('autoFocus') usernameInput!: ElementRef<HTMLInputElement>;
 
   today!: string;
@@ -28,7 +48,7 @@ export class RegisterComponent implements AfterViewInit{
     carId: new FormGroup({
       cityCode: new FormControl({ value: '', disabled: false }, [Validators.required, Validators.pattern(/^[1-9][0-9]$/)]),
       threeDigit: new FormControl({ value: '', disabled: false }, [Validators.required, Validators.pattern(/^[1-9]\d{2}$/)]),
-      character: new FormControl({ value: '', disabled: false }, [Validators.required, Validators.pattern(/^[\u0600-\u06FF]$/)]),
+      character: new FormControl({ value: '', disabled: false }, [Validators.required, Validators.pattern(/^([\u0628-\u06cc]|[\u0627][\u0644][\u0641])$/)]),
       twoDigit: new FormControl({ value: '', disabled: false }, [Validators.required, Validators.pattern(/^[1-9][0-9]$/)]),
     }),
   });
@@ -60,6 +80,10 @@ export class RegisterComponent implements AfterViewInit{
     this.todayJalali = MomentDate.locale('fa').format('YYYY/MM/DD');
   }
 
+  ngOnInit(): void {
+
+  }
+
   ngAfterViewInit(): void {
     this.usernameInput.nativeElement.focus();
   }
@@ -86,7 +110,8 @@ export class RegisterComponent implements AfterViewInit{
     if (this.customerForm.invalid) {
       return;
     }
-    
+
     this.printJsonValue = {...this.customerForm.value, gregorian: this.today, jalali: this.todayJalali};
+    this.customerForm.setErrors({'incorrect': true });
   }
 }
