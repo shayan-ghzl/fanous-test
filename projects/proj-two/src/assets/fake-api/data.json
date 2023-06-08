@@ -1,0 +1,123 @@
+{
+  "data": {
+    "list0": [
+      {
+        "id": 1,
+        "parentId": 0,
+        "name": "اصفهان"
+      },
+      {
+        "id": 2,
+        "parentId": 1,
+        "name": "شاهین شهر"
+      },
+      {
+        "id": 3,
+        "parentId": 1,
+        "name": "نجف آباد"
+      },
+      {
+        "id": 4,
+        "parentId": 2,
+        "name": "فولاد شهر"
+      },
+      {
+        "id": 1002,
+        "parentId": -1,
+        "name": "نواحی"
+      },
+      {
+        "id": 1007,
+        "parentId": 2,
+        "name": "ناحیه 2"
+      },
+      {
+        "id": 1008,
+        "parentId": 2,
+        "name": "ناحیه "
+      },
+      {
+        "id": 1009,
+        "parentId": 1,
+        "name": "تست 1"
+      },
+      {
+        "id": 1010,
+        "parentId": 0,
+        "name": " 2222m"
+      },
+      {
+        "id": 1011,
+        "parentId": 1,
+        "name": "تست 2"
+      },
+      {
+        "id": 1012,
+        "parentId": 1,
+        "name": "نام 4"
+      },
+      {
+        "id": 1013,
+        "parentId": 1,
+        "name": "نام 5"
+      },
+      {
+        "id": 1015,
+        "parentId": 1010,
+        "name": "تست شماره تلفن"
+      },
+      {
+        "id": 1016,
+        "parentId": 1015,
+        "name": "نام ناحبه 2"
+      },
+      {
+        "id": 1019,
+        "parentId": 1,
+        "name": "علیشاهی"
+      },
+      {
+        "id": 1020,
+        "parentId": 0,
+        "name": "تست"
+      },
+      {
+        "id": 1021,
+        "parentId": 1020,
+        "name": "awdawda"
+      },
+      {
+        "id": 1023,
+        "parentId": 1008,
+        "name": "132132"
+      },
+      {
+        "id": 1025,
+        "parentId": 1,
+        "name": "testnew1"
+      }
+    ],
+    "list1": [
+      {
+        "id": 1,
+        "parentId": 0,
+        "name": "رفع نشده"
+      },
+      {
+        "id": 2,
+        "parentId": 0,
+        "name": "رفع شده خود اظهاری"
+      },
+      {
+        "id": 3,
+        "parentId": 0,
+        "name": "رفع نشده واقعی"
+      },
+      {
+        "id": 4,
+        "parentId": 0,
+        "name": "رفع شده واقعی"
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+.spinner {
+    animation: spinner-anim 0.4s infinite linear;
+    border-radius: 50%;
+}
+.spinner-mini {
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(farthest-side, var(--bs-gray-700) 94%, #0000) top/3.8px 3.8px no-repeat,
+        conic-gradient(#0000 30%, var(--bs-gray-700));
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 3.8px), #000 0);
+}
+.spinner-small {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(farthest-side, var(--bs-gray-700) 94%, #0000) top/6.4px 6.4px no-repeat,
+        conic-gradient(#0000 30%, var(--bs-gray-700));
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 6.4px), #000 0);
+}
+.spinner-medium {
+    width: 56px;
+    height: 56px;
+    background: radial-gradient(farthest-side, var(--bs-gray-700) 94%, #0000) top/9px 9px no-repeat,
+        conic-gradient(#0000 30%, var(--bs-gray-700));
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+}
+.spinner-large {
+    width: 72px;
+    height: 72px;
+    background: radial-gradient(farthest-side, var(--bs-gray-700) 94%, #0000) top/11.5px 11.5px no-repeat,
+        conic-gradient(#0000 30%, var(--bs-gray-700));
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 11.5px), #000 0);
+}
+.spinner-huge {
+    width: 88px;
+    height: 88px;
+    background: radial-gradient(farthest-side, var(--bs-gray-700) 94%, #0000) top/14.1px 14.1px no-repeat,
+        conic-gradient(#0000 30%, var(--bs-gray-700));
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 14.1px), #000 0);
+}
+
+@keyframes spinner-anim {
+    100% {
+        transform: rotate(1turn);
+    }
+}

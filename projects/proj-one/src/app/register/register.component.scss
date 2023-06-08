@@ -1,0 +1,41 @@
+.component-container{
+    padding: 24px;
+    max-width: 400px;
+    margin: 24px auto;
+    border: 1px solid #70707040;
+    border-radius: 6px;
+    background-color: var(--bs-gray-100);
+}
+.form-label {
+    font-weight: 600;
+}
+.form-control::placeholder {
+    opacity: 0.5;
+  }
+.form-field-similar, .form-field, .car-id-field-row{
+    margin-bottom: 16px;
+    .form-container-similar{
+        font-size: 0.875rem;
+    }
+}
+.car-id-field-row{
+        display: flex;
+        gap: 6px;
+    .car-id-form-field{
+        width: 100%;
+        max-width: 100%;
+        flex: 1 0 0%;
+    }
+    input{
+        text-align: center;
+    }
+}
+.image-container{
+    margin-bottom: 18px;
+    img{
+        width: 100%;
+    }
+}
+button[type="submit"], .form-value{
+    margin-top: 2rem;
+}

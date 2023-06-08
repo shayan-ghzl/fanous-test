@@ -1,0 +1,96 @@
+@font-face {
+	font-family: 'Inter';
+    font-display: swap;
+	font-style: normal;
+	font-weight: 900;
+	src: url('../fonts/ttf/Inter-Black.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+	font-style: normal;
+	font-weight: 800;
+	src: url('../fonts/ttf/Inter-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/ttf/Inter-Bold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Inter';
+    font-display: swap;
+	font-style: normal;
+	font-weight: 600;
+	src: url('../fonts/ttf/Inter-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/ttf/Inter-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/ttf/Inter-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+	font-style: normal;
+	font-weight: 300;
+	src: url('../fonts/ttf/Inter-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 200;
+    src: url('../fonts/ttf/Inter-ExtraLight.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Inter';
+    font-display: swap;
+	font-style: normal;
+	font-weight: 100;
+	src: url('../fonts/ttf/Inter-Thin.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Samim';
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+    src: url('../fonts/eot/Samim.eot') format('eot');
+    src: url("../fonts/eot/Samim.eot?#iefix") format("embedded-opentype"),
+        url('../fonts/woff2/Samim.woff2') format('woff2'),
+        url('../fonts/woff/Samim.woff') format('woff'),
+        url("../fonts/ttf/Samim.ttf") format("truetype");
+}
+@font-face {
+    font-family: 'Samim';
+    font-display: swap;
+    font-weight: 500;
+    font-style: normal;
+    src: url('../fonts/eot/Samim-Medium.eot') format('eot');
+    src: url("../fonts/eot/Samim-Medium.eot?#iefix") format("embedded-opentype"),
+        url('../fonts/woff2/Samim-Medium.woff2') format('woff2'),
+        url('../fonts/woff/Samim-Medium.woff') format('woff'),
+        url("../fonts/ttf/Samim-Medium.ttf") format("truetype");
+}
+@font-face {
+    font-family: 'Samim';
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+    src: url('../fonts/eot/Samim-Bold.eot') format('eot');
+    src: url("../fonts/eot/Samim-Bold.eot?#iefix") format("embedded-opentype"),
+        url('../fonts/woff2/Samim-Bold.woff2') format('woff2'),
+        url('../fonts/woff/Samim-Bold.woff') format('woff'),
+        url("../fonts/ttf/Samim-Bold.ttf") format("truetype");
+}

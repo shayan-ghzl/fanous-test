@@ -1,0 +1,20 @@
+.component-container{
+    margin: 4%;
+}
+.table-toolbar{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    .input-group{
+        width: 300px;
+    }
+}
+.table{
+    white-space: nowrap;
+}
+.empty-message{
+    text-align: center;
+}
+.spinner{
+    margin: 0 auto;
+}

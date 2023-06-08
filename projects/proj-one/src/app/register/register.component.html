@@ -1,0 +1,110 @@
+<div class="component-container shadow-sm">
+    <div class="form-container">
+        <form [formGroup]="customerForm" (ngSubmit)="submit()" autocomplete="off">
+
+            <div class="form-field-similar">
+                <label class="form-label">Date in Gregorian</label>
+                <!-- <div class="form-container-similar">{{ today | date: 'yyyy/MM/dd' }}</div> -->
+                <div class="form-container-similar">{{ today }}</div>
+            </div>
+
+            <div class="form-field-similar">
+                <label class="form-label">Date in Jalali</label>
+                <!-- <div class="form-container-similar">{{ today | jalali }}</div> -->
+                <div class="form-container-similar">{{ todayJalali }}</div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label">Username *</label>
+                <input class="form-control form-control-sm"
+                    type="text"
+                    autocomplete="off"
+                    formControlName="username"
+                    #autoFocus
+                    [ngClass]="{'is-invalid': customerForm.controls['username'].invalid && customerForm.controls['username'].touched}">
+                <small class="invalid-feedback">
+                    From 3 to 12 characters are allowed
+                </small>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label">Password *</label>
+                <input class="form-control form-control-sm"
+                    type="text"
+                    autocomplete="off"
+                    formControlName="password"
+                    [ngClass]="{'is-invalid': customerForm.controls['password'].invalid && customerForm.controls['password'].touched}">
+                <small class="invalid-feedback">
+                    From 6 to 12 characters are allowed
+                </small>
+            </div>
+            
+            <div formGroupName="carId">
+                <label class="form-label">Car id *</label>
+                <div class="image-container">
+                    <img src="./assets/images/plate-sample.jpg" alt="car plate sample">
+                </div>
+                <div class="car-id-field-row">
+                    <div class="car-id-form-field">
+                        <input class="form-control form-control-sm"
+                            type="text"
+                            formControlName="twoDigit"
+                            placeholder="12"
+                            [ngClass]="{'is-invalid': customerForm.controls.carId.controls['twoDigit'].invalid && customerForm.controls.carId.controls['twoDigit'].touched}" >
+                        <small class="invalid-feedback">
+                            The field is mandatory
+                        </small>
+                    </div>
+                    <div class="car-id-form-field">
+                        <input class="form-control form-control-sm"
+                            type="text"
+                            formControlName="character"
+                            placeholder="ب"
+                            [ngClass]="{'is-invalid': customerForm.controls.carId.controls['character'].invalid && customerForm.controls.carId.controls['character'].touched}">
+                        <small class="invalid-feedback">
+                            The field is mandatory
+                        </small>
+                    </div>
+                    <div class="car-id-form-field">
+                        <input class="form-control form-control-sm"
+                            type="text"
+                            formControlName="threeDigit"
+                            placeholder="365"
+                            [ngClass]="{'is-invalid': customerForm.controls.carId.controls['threeDigit'].invalid && customerForm.controls.carId.controls['threeDigit'].touched}" >
+                        <small class="invalid-feedback">
+                            The field is mandatory
+                        </small>
+                    </div>
+                    <div class="car-id-form-field">
+                        <input class="form-control form-control-sm"
+                            type="text"
+                            formControlName="cityCode"
+                            placeholder="11"
+                            [ngClass]="{'is-invalid': customerForm.controls.carId.controls['cityCode'].invalid && customerForm.controls.carId.controls['cityCode'].touched}">
+                        <small class="invalid-feedback">
+                            The field is mandatory
+                        </small>
+                    </div>
+                </div>
+            </div> 
+
+            <button type="submit" class="btn btn-sm btn-primary btn-block" [disabled]="customerForm.invalid">Submit</button>  
+
+        </form>  
+    </div>
+    <div class="form-value">
+        <label class="form-label">JSON Value</label>
+        <p>{{ printJsonValue | json }}</p>
+    </div>
+    <div class="form-value">
+        <label class="form-label">Test password</label>
+       <div>
+            valid: {{ customerForm.controls['password'].valid }} (means: ), <br>
+            invalid: {{ customerForm.controls['password'].invalid }} (means: ), <br>
+            dirty: {{ customerForm.controls['password'].dirty }} (means: ), <br>
+            touched: {{ customerForm.controls['password'].touched }} (means: ), <br>
+            untouched: {{ customerForm.controls['password'].untouched }} (means: ), <br>
+            pristine: {{ customerForm.controls['password'].pristine }} (means: )<br>
+       </div>
+    </div>
+</div>

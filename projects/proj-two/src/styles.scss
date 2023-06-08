@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/css/font-initialize.css";
+@import "./assets/css/bootstrap-reboot.css";
+@import "./assets/css/bootstrap-button.css";
+@import "./assets/css/bootstrap-forms.css";
+@import "./assets/css/bootstrap-dropdown.css";
+@import "./assets/css/bootstrap-table.css";
+@import "./assets/css/spinner.css";
+@import "./assets/css/utility.css";
+
+.form-check-label{
+  cursor: pointer;
+}
+
+// change scrollbar style
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #999; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

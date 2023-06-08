@@ -1,0 +1,39 @@
+<div class="component-container">
+    <ng-container *ngIf="(userList$ | async | filter: tableSearchInput : ['name'] : sortName) as list;else loadingTemplate">
+        <div class="user-list">
+            <div class="table-toolbar">
+                <div class="input-group">
+                    <input type="text" class="form-control form-control-sm" placeholder="search..." #tableSearchFilter [(ngModel)]="tableSearchInput">
+                </div>
+            </div>
+            <div class="table-responsive" *ngIf="list.length;else emptyTableTemplate">
+                <table class="table table-bordered table-sm table-striped">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>parentId</th>
+                            <th (click)="sort()">name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of list;let index=index">
+                            <td>{{user.id}}</td>
+                            <td>{{user.parentId}}</td>
+                            <td>{{user.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #loadingTemplate>
+        <div class="spinner spinner-small"></div>
+    </ng-template>
+    <ng-template #emptyTableTemplate>
+        <div class="empty-message">
+            <h4>Without result!</h4>
+        </div>
+    </ng-template>
+  
+</div>
+
