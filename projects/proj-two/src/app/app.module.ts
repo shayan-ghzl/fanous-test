@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
-import { UniquePipe } from './shared/pipes/unique.pipe';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,8 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     UsersListComponent,
-    FilterPipe,
-    UniquePipe
+    FilterPipe
   ],
   imports: [
     BrowserModule,

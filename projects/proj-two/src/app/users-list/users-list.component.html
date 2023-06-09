@@ -1,10 +1,11 @@
 <div class="component-container">
-    <ng-container *ngIf="(userList$ | async | filter: tableSearchInput : ['name'] : sortName) as list;else loadingTemplate">
+    <ng-container *ngIf="(userList$ | async | filter: tableSearchInput : ['name'] : sortOrder : false) as list;else loadingTemplate">
         <div class="user-list">
             <div class="table-toolbar">
                 <div class="input-group">
                     <input type="text" class="form-control form-control-sm" placeholder="search..." #tableSearchFilter [(ngModel)]="tableSearchInput">
                 </div>
+                <h4>Istandard table</h4>
             </div>
             <div class="table-responsive" *ngIf="list.length;else emptyTableTemplate">
                 <table class="table table-bordered table-sm table-striped">
@@ -12,7 +13,12 @@
                         <tr>
                             <th>id</th>
                             <th>parentId</th>
-                            <th (click)="sort()">name</th>
+                            <th class="sortable-th" (click)="sort()">
+                                name
+                                <svg [attr.title]="sortOrder === 1 ? 'dashicons-arrow-down' : 'dashicons-arrow-up'">
+                                    <use [attr.xlink:href]="sortOrder === 1 ? '#arrow-down' : '#arrow-up'"/>
+                                </svg>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +40,58 @@
             <h4>Without result!</h4>
         </div>
     </ng-template>
-  
-</div>
 
+    <hr style="opacity: 1;">
+    
+    <ng-container *ngIf="(userList$ | async | filter: treeNodeSearchInput : ['name'] : treeNodeSortOrder : true) as list;else loadingTemplate">
+        <div class="user-list">
+            <div class="table-toolbar">
+                <div class="input-group">
+                    <input type="text" class="form-control form-control-sm" placeholder="search..." #treeNodeSearchFilter [(ngModel)]="treeNodeSearchInput">
+                </div>
+                <h4>Treenode</h4>
+            </div>
+            <div class="table-responsive" *ngIf="list.length;else emptyTableTemplate">
+                <table class="table table-bordered table-sm table-striped">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>parentId</th>
+                            <th class="sortable-th" (click)="treeNodeSort()">
+                                name
+                                <svg [attr.title]="treeNodeSortOrder === 1 ? 'dashicons-arrow-down' : 'dashicons-arrow-up'">
+                                    <use [attr.xlink:href]="treeNodeSortOrder === 1 ? '#arrow-down' : '#arrow-up'"/>
+                                </svg>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngTemplateOutlet="tree;context:{$implicit: list, level: 0}">
+                        </ng-container>
+                        <ng-template #tree let-treenode let-level="level">
+                            <ng-container *ngFor="let node of treenode;let index = index">
+                                <tr>
+                                    <td>{{node.id}}</td>
+                                    <td>{{node.parentId}}</td>
+                                    <td [style.padding-left]="((level) ? level*30 : 4) +'px'">{{node.name}}</td>
+                                </tr>
+                                <ng-container *ngTemplateOutlet="tree;context:{$implicit: node.children, level: level+1}">
+                                </ng-container>
+                            </ng-container>
+                        </ng-template>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </ng-container>
+</div>
+<!-- Raw Treenode Function -->
+<!-- <ng-container *ngTemplateOutlet="tree;context:{$implicit: (userList$ | async | filter: tableSearchInput : ['name'] : sortOrder : true), level: 0}">
+</ng-container>
+<ng-template #tree let-treenode let-level="level">
+    <ng-container *ngFor="let node of treenode;let index = index">
+        <span [style.padding-left]="level*30 + 'px'">{{node.name}}</span><br>
+        <ng-container *ngTemplateOutlet="tree;context:{$implicit: node.children, level: level+1}">
+        </ng-container>
+    </ng-container>
+</ng-template> -->

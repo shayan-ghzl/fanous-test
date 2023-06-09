@@ -3,11 +3,24 @@
 }
 .table-toolbar{
     display: flex;
+    align-items: flex-end;
     justify-content: space-between;
     margin-bottom: 12px;
     .input-group{
         width: 300px;
     }
+    h4{
+        margin: 0;
+        font-weight: 700;
+    }
+}
+.sortable-th{
+    cursor: pointer;
+    user-select: none;
+}
+svg{
+    width: 16px;
+    height: 16px;
 }
 .table{
     white-space: nowrap;
