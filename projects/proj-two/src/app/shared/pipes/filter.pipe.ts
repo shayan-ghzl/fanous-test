@@ -59,4 +59,18 @@ export class FilterPipe implements PipeTransform {
   //   return temp;
   // }
 
+  // Raw Function Bt ChatGPT
+  // createTree(flatArray: IEntity[], parentId: number = 0) {
+  //   return flatArray.reduce((tree: any[], item) => {
+  //     if (item.parentId === parentId) {
+  //       const children = this.createTree(flatArray, item.id);
+  //       if (children.length) {
+  //         (item as any).children = children;
+  //       }
+  //       tree.push(item);
+  //     }
+  //     return tree;
+  //   }, []);
+  // }
+
 }
